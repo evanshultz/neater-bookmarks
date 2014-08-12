@@ -334,19 +334,25 @@ function init() {
 		var focusID = localStorage.focusID;
 		if (key == 40 && searchInput.value.length == searchInput.selectionEnd){ // down
 			e.preventDefault();
+			var item;
 			if (searchMode){
-				$results.querySelector('ul>li:first-child a').focus();
+				item = $results.querySelector('ul>li:first-child a');
 			} else {
-				$tree.querySelector('ul>li:first-child').querySelector('span, a').focus();
+				item = $tree.querySelector('ul>li:first-child').querySelector('span, a');
+			}
+			if (item !== null) {
+				item.focus();
 			}
 		} else if (key == 13 && searchInput.value.length){ // enter
 			var item = $results.querySelector('ul>li:first-child a');
-			item.focus();
-			setTimeout(function(){
-				var event = document.createEvent('MouseEvents');
-				event.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-				item.dispatchEvent(event);
-			}, 30);
+			if (item !== null) {
+				item.focus();
+				setTimeout(function(){
+					var event = document.createEvent('MouseEvents');
+					event.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+					item.dispatchEvent(event);
+				}, 30);
+			}
 		} else if (key == 9 && !searchMode){ // tab
 			if (typeof focusID != 'undefined' && focusID != null){
 				var focusEl = $('neat-tree-item-' + focusID);

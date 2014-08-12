@@ -920,11 +920,12 @@ function init() {
 						nextLi.querySelector('a, span').focus();
 					} else {
 						do {
+							// Go up in hierarchy
 							li = li.parentNode.parentNode;
-							if (li) nextLi = li.nextElementSibling;
-							if (nextLi) LastLi = nextLi.querySelector('a, span');
-							if (LastLi) LastLi.focus(); // down on the last item in tree
-						} while (li && !nextLi);
+							// Go to next
+							if (li.tagName === 'LI') nextLi = li.nextElementSibling;
+							if (nextLi) nextLi.querySelector('a, span').focus();
+						} while (li.tagName === 'LI' && !nextLi);
 					}
 				}
 				break;

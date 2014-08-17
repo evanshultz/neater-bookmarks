@@ -303,9 +303,13 @@ function init() {
 			var html = '<ul role="list">';
 			for (var i = 0, l = results.length; i < l; i++){
 				var result = results[i];
-				var id = result.id;
-				html += '<li data-parentid="' + result.parentId + '" id="results-item-' + id + '" role="listitem">'
-					+ generateBookmarkHTML(result.title, result.url);
+				// if bookmark
+				if (result.url) {
+					var id = result.id;
+					html += '<li data-parentid="' + result.parentId + '" id="results-item-' + id + '" role="listitem">'
+						+ generateBookmarkHTML(result.title, result.url);
+				}
+				// TODO folders?
 			}
 			html += '</ul>';
 			$tree.style.display = 'none';

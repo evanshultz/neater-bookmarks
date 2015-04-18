@@ -1,9 +1,9 @@
 {
   "accessibility": {
-    "message": "Toegankelijkheid Instellingen"
+    "message": "Toegankelijkheidsinstellingen"
   },
   "confirmDeleteFolderBookmarks": {
-    "message": "Weet je zeker dat je de $folderName$ folder en $bookmarkCount$ bladwijzer(s) wilt verwijderen?",
+    "message": "Weet je zeker dat je de $folderName$ map en $bookmarkCount$ bladwijzer(s) wilt verwijderen?",
     "placeholders": {
       "bookmarkCount": {
         "content": "$2"
@@ -14,7 +14,7 @@
     }
   },
   "confirmDeleteFolderSubfoldersBookmarks": {
-    "message": "Weet je zeker dat je de $folderName$ folder, $subFolderCount$ sub-folder(s) en $bookmarkCount$ bladwijzer(s) wilt verwijderen?",
+    "message": "Weet je zeker dat je de $folderName$ map, $subFolderCount$ submap(pen) en $bookmarkCount$ bladwijzer(s) wilt verwijderen?",
     "placeholders": {
       "bookmarkCount": {
         "content": "$3"
@@ -28,7 +28,7 @@
     }
   },
   "confirmDeleteFolderSubfolders": {
-    "message": "Weet je zeker dat je de $folderName$ folder en $subFolderCount$ sub-folder(s) wilt verwijderen?",
+    "message": "Weet je zeker dat je de $folderName$ map en $subFolderCount$ submap(pen) wilt verwijderen?",
     "placeholders": {
       "folderName": {
         "content": "$1"
@@ -66,13 +66,13 @@
     }
   },
   "customIcon": {
-    "message": "Aangespast Symbool"
+    "message": "Aangepast symbool"
   },
   "customIconText": {
-    "message": "Het symbool moet 19&times;19 zijn, of het zal herschaald worden."
+    "message": "Het symbool moet 19&times;19 zijn of het zal herschaald worden."
   },
   "customStyles": {
-    "message": "Aangepaste Stijlen"
+    "message": "Aangepaste stijlen"
   },
   "customStylesText": {
     "message": "Dit vereist wat CSS vaardigheden. Hack op je eigen risico. Het delen van de code wordt aangemoedigd via $linkGithubGist$.",
@@ -92,7 +92,7 @@
     "message": "Bladwijzer bewerken"
   },
   "editFolder": {
-    "message": "Folder bewerken"
+    "message": "Map bewerken"
   },
   "edit": {
     "message": "Bewerken..."
@@ -102,14 +102,14 @@
   },
   "extDesc": {
     "description": "The extension description.",
-    "message": "Een nettere bladwijzers-tree pop-up."
+    "message": "Een nettere bladwijzerboom pop-up."
   },
   "extName": {
     "description": "The extension name.",
     "message": "Nettere Bladwijzers"
   },
   "general": {
-    "message": "Algemene Instellingen"
+    "message": "Algemene instellingen"
   },
   "ignore": {
     "message": "Negeren"
@@ -126,35 +126,35 @@
     "message": "(geen titel)"
   },
   "openBookmarksIncognitoWindow": {
-    "message": "Open Alle Bladwijzers in Incognito Venster"
+    "message": "Open alle bladwijzers in incognito venster"
   },
   "openBookmarks": {
-    "message": "Open Alle Bladwijzers"
+    "message": "Open alle bladwijzers"
   },
   "openBookmarksNewWindow": {
-    "message": "Open Alle Bladwijzers in Nieuw Venster"
+    "message": "Open alle bladwijzers in nieuw venster"
   },
   "open": {
     "description": "Action to open bookmarks.",
     "message": "Openen"
   },
   "openIncognitoWindow": {
-    "message": "Open in Incognito Venster"
+    "message": "Open in incognito venster"
   },
   "openNewTab": {
-    "message": "Open in Nieuw Tabblad"
+    "message": "Open in nieuw tabblad"
   },
   "openNewWindow": {
-    "message": "Open in Nieuw Venster"
+    "message": "Open in nieuw venster"
   },
   "optionClickNewTab": {
     "message": "Linker-muisknop opent bladwijzers in een nieuw tabblad."
   },
   "optionCloseUnusedFolders": {
-    "message": "Sluit onbenutte folders wanneer een nieuwe folder geopend wordt."
+    "message": "Sluit ongebruikte mappen wanneer een nieuwe map geopend wordt."
   },
   "optionConfirmOpenFolder": {
-    "message": "Toon bevestiging wanneer er een heleboel bladwijzers uit een folder geopend wordt."
+    "message": "Toon bevestiging wanneer er een heleboel bladwijzers uit een map geopend worden."
   },
   "optionOpenNewTab": {
     "message": "Middel-klik of control-klik opent bladwijzers in een nieuw tabblad op de achtergrond (inplaats van op de voorgrond)."
@@ -163,7 +163,7 @@
     "message": "Pop-up blijft open wanneer bladwijzers (via linker-muisknop) geopend worden."
   },
   "optionRememberPrevState": {
-    "message": "Onthoudt vorige staat (scroll-positie en geopende folders)."
+    "message": "Onthoud vorige staat (scroll-positie en geopende mappen)."
   },
   "optionsFooterText1": {
     "description": "Footer text for the Options page",
@@ -186,7 +186,7 @@
     }
   },
   "optionsFooterText3": {
-    "message": "FAQ: $neaterFaq$",
+    "message": "Veel gestelde vragen: $neaterFaq$",
     "placeholders": {
       "neaterFaq": {
         "content": "$1"
@@ -194,7 +194,7 @@
     }
   },
   "optionsFooterText4": {
-    "message": "Bekijk vraagstukken of verstuur een nieuwe: $neaterIssues$",
+    "message": "Bekijk problemen of verstuur nieuwe: $neaterIssues$",
     "placeholders": {
       "neaterIssues": {
         "content": "$1"
@@ -252,13 +252,13 @@
     "message": "Dit is gemeld aan de ontwikkelaar."
   },
   "reportError": {
-    "message": "Fout Rapporteren"
+    "message": "Fout rapporteren"
   },
   "reset": {
     "message": "Resetten"
   },
   "resetSettings": {
-    "message": "Reset Instellingen"
+    "message": "Reset instellingen"
   },
   "resetText": {
     "message": "Reset alle $extName$ opties naar standaard.",
@@ -273,7 +273,7 @@
   },
   "searchBookmarks": {
     "description": "Placeholder text for search field.",
-    "message": "Zoek Bladwijzers"
+    "message": "Zoek in bladwijzers"
   },
   "url": {
     "message": "URL"

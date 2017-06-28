@@ -363,10 +363,14 @@ function init() {
 				if (firstItem) firstItem.focus();
 			}
 		// Pressing esc shouldn't close the popup when search field has value
-		} else if (e.keyCode == 27 && searchInput.value){ // esc
-			e.preventDefault();
-			searchInput.value = '';
-			search();
+		} else if (e.keyCode == 27) { // esc
+			if (searchInput.value) {
+				e.preventDefault();
+				searchInput.value = '';
+				search();
+			} else {
+				setTimeout(window.close, 50);
+			}
 		}
 	});
 	

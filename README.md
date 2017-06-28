@@ -28,7 +28,7 @@ Check out [this issue](http://crbug.com/51084).
 
 ### Is there a keyboard shortcut to open Neater Bookmarks (popup)?
 
-One can be added by going to the [Extensions tab](chrome://extensions/) and clicking the "Configure commands" link at the bottom of the page. In the popup, type a keyboard command (such as Ctrl+B) in the box next to "Neater Bookmarks". The keyboard command will open the popup with focus on the search box; typing will immediately search bookmarks while pressing the arrow keys will navigate the bookmark tree.
+One can be added by going to the [Extensions tab](chrome://extensions/) and clicking the "Keyboard shortcuts" link at the bottom of the page. In the popup, type a keyboard command (such as Ctrl+B) in the box next to "Neater Bookmarks". The keyboard command will open the popup with focus on the search box; typing will immediately search bookmarks while pressing the arrow keys will navigate the bookmark tree.
 
 ### Does Neater Bookmarks support Google Bookmarks?
 

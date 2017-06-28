@@ -713,16 +713,32 @@ function init() {
 			});
 		}
 	};
-	$tree.addEventListener('click', bookmarkHandler);
-	$results.addEventListener('click', bookmarkHandler);
+
 	var bookmarkHandlerMiddle = function(e){
 		if (e.button != 1) return; // force middle-click
+		e.preventDefault();
 		var event = document.createEvent('MouseEvents');
 		event.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, true, false, e.shiftKey, true, 0, null);
 		e.target.dispatchEvent(event);
 	};
-	$tree.addEventListener('mouseup', bookmarkHandlerMiddle);
-	$results.addEventListener('mouseup', bookmarkHandlerMiddle);
+	
+$tree.addEventListener('click', event => {
+											  if (event.button === 0) {												  
+												return bookmarkHandler(event);												
+											  }
+											  // This provides fallback behavior in browsers without auxclick.											  
+											  return bookmarkHandlerMiddle(event);
+											});
+	$results.addEventListener('click', event => {
+											if (event.button === 0) {
+												return bookmarkHandler(event);
+											}
+											// This provides fallback behavior in browsers without auxclick.
+												return bookmarkHandlerMiddle(event);
+											});
+	
+	$tree.addEventListener('auxclick', bookmarkHandlerMiddle);
+	$results.addEventListener('auxclick', bookmarkHandlerMiddle);
 	
 	// Disable Chrome auto-scroll feature
 	window.addEventListener('mousedown', function(e){

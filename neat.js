@@ -119,6 +119,8 @@ function init() {
 		var paddingStart = 14 * level;
 		var group = (level == 0) ? 'tree' : 'group';
 		var html = '<ul role="' + group + '" data-level="' + level + '">';
+		var folder_content = '';
+		var other_content = '';
 		
 		for (var i = 0, l = data.length; i < l; i++){
 			var d = data[i];
@@ -136,12 +138,12 @@ function init() {
 					isOpen = opens.contains(id);
 					if (isOpen) open = ' open';
 				}
-				html += '<li class="parent' + open + '"' + idHTML + ' role="treeitem" aria-expanded="' + isOpen + '" data-parentid="' + parentID + '">'
+				folder_content += '<li class="parent' + open + '"' + idHTML + ' role="treeitem" aria-expanded="' + isOpen + '" data-parentid="' + parentID + '">'
 					+ '<span tabindex="0" style="-webkit-padding-start: ' + paddingStart + 'px"><b class="twisty"></b>'
 					+ '<img src="folder.png" width="16" height="16" alt=""><i>' + (title || _m('noTitle')) + '</i>' + '</span>';
 				if (isOpen){
 					if (children){
-						html += generateHTML(children, level + 1);
+						folder_content  += generateHTML(children, level + 1);
 					} else {
 						(function(_id){
 							chrome.bookmarks.getChildren(_id, function(children){
@@ -155,13 +157,14 @@ function init() {
 						})(id);
 					}
 				}
+				folder_content += '</li>';
 			} else {
-				html += '<li class="child"' + idHTML + ' role="treeitem" data-parentid="' + parentID + '">'
-					+ generateBookmarkHTML(title, url, 'style="-webkit-padding-start: ' + paddingStart + 'px"');
+				other_content += '<li class="child"' + idHTML + ' role="treeitem" data-parentid="' + parentID + '">'
+					+ generateBookmarkHTML(title, url, 'style="-webkit-padding-start: ' + paddingStart + 'px"')+'</li>';;
 			}
-			html += '</li>';
+			
 		}
-		html += '</ul>';
+		html += folder_content +other_content+'</ul>';
 		return html;
 	};
 	
@@ -773,8 +776,11 @@ function init() {
 			el.addClass('active');
 			var bookmarkMenuWidth = $bookmarkContextMenu.offsetWidth;
 			var bookmarkMenuHeight = $bookmarkContextMenu.offsetHeight;
-			var pageX = rtl ? Math.max(0, e.pageX - bookmarkMenuWidth) : Math.min(e.pageX, body.offsetWidth - bookmarkMenuWidth);
+			var pageX = rtl ? Math.max(0, el.getBoundingClientRect().right - bookmarkMenuWidth) : Math.min(el.getBoundingClientRect().right, body.offsetWidth - bookmarkMenuWidth-16);
 			var pageY = e.pageY;
+			// var pageX = rtl ? Math.max(0, el.position().left - bookmarkMenuWidth) : Math.min(el.position().left, body.offsetWidth - bookmarkMenuWidth-16);
+			// var pageX = body.offsetWidth - bookmarkMenuWidth-16;
+			// var pageY = el.getBoundingClientRect().top;
 			var boundY = window.innerHeight - bookmarkMenuHeight;
 			if (pageY > boundY) pageY -= bookmarkMenuHeight;
 			if (pageY < 0) pageY = boundY;
@@ -795,7 +801,8 @@ function init() {
 			}
 			var folderMenuWidth = $folderContextMenu.offsetWidth;
 			var folderMenuHeight = $folderContextMenu.offsetHeight;
-			var pageX = rtl ? Math.max(0, e.pageX - folderMenuWidth) : Math.min(e.pageX, body.offsetWidth - folderMenuWidth);
+			// var pageX = rtl ? Math.max(0, e.pageX - folderMenuWidth) : Math.min(e.pageX, body.offsetWidth - folderMenuWidth);
+			var pageX = rtl ? Math.max(0, el.getBoundingClientRect().right - folderMenuWidth) : Math.min(el.getBoundingClientRect().right, body.offsetWidth - folderMenuWidth-16);
 			var pageY = e.pageY;
 			var boundY = window.innerHeight - folderMenuHeight;
 			if (pageY > boundY) pageY -= folderMenuHeight;

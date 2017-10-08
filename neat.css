@@ -2,7 +2,7 @@ body{
 	direction: __MSG_@@bidi_dir__;
 	font: menu;
 	color: #000;
-	background-color: #eee;
+	background-color: #f1f1f1;
 	margin: 0;
 	padding: 0;
 	cursor: default;
@@ -12,6 +12,8 @@ body{
 	width: 320px;
 	height: 530px;
 	max-height: 530px; /* prevent double scrollbars in popup */
+	font-family: calibri;
+	font-size: 16px;
 }
 body.linux{
 	font-size: 12px;
@@ -73,6 +75,10 @@ body.linux input{
 	margin: 2px 0;
 	padding: 2px;
 }
+#search:focus, #search input:focus{ 
+	outline: none;
+}
+
 #results,
 #tree{
 	outline: 0;
@@ -80,7 +86,7 @@ body.linux input{
 	-webkit-box-shadow: inset 0 4px 4px -4px rgba(0,0,0,.1);
 	-webkit-box-flex: 1;
 	box-flex: 1;
-	text-shadow: 0 1px #f6f6f6;
+/*	text-shadow: 0 1px #f6f6f6;*/
 	position: relative;
     overflow-y: auto;
 }
@@ -153,7 +159,7 @@ body.linux input{
 }
 #results ul li a:hover i,
 #tree ul li a:hover i{
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 #results ul li a:active,
 #results ul li a.active,
@@ -164,12 +170,15 @@ body.linux input{
 #tree ul li span.active,
 #tree ul li a:focus,
 #tree ul li span:focus,
+#results ul li a:hover,
+#tree ul li a:hover,
+#tree ul li span:hover,
 menu[type=context] command:focus{
-	color: #fff;
-	background-color: #4687cb;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#6fa6de), to(#1e6cbb));
+	/*color: #fff;*/
+	background-color: rgb(203,203,203);
+/*	background-image: -webkit-gradient(linear, left top, left bottom, from(#6fa6de), to(#1e6cbb));
 	-webkit-box-shadow: 0 -1px #5594d2;
-	text-shadow: 0 0 rgba(255,255,255,.5), 0 1px rgba(0,0,0,.5);
+	text-shadow: 0 0 rgba(255,255,255,.5), 0 1px rgba(0,0,0,.5);*/
 	outline: 0;
 }
 .searchFocus #results ul>li:first-child a{
@@ -178,7 +187,7 @@ menu[type=context] command:focus{
 #tree ul li span:active .twisty,
 #tree ul li span.active .twisty,
 #tree ul li span:focus .twisty{
-	border-color: transparent transparent transparent #e5eef8;
+	border-color: transparent transparent transparent #e7e7e7;
 }
 #tree ul ul{
 	height: 0;
@@ -192,7 +201,7 @@ menu[type=context] command:focus{
 		background-color: transparent;
 	}
 	10%{
-		background-color: rgba(43,93,205,.2);
+		background-color: rgba(203,203,203,.2);
 	}
 	100% {
 		background-color: transparent;
@@ -244,7 +253,7 @@ menu[type=context] command:focus{
 	border: 1px solid #fff;
 }
 #drop-overlay.folder{
-	background-color: rgba(43,93,205,.2);
+	background-color: rgba(203,203,203,.2);
 	border: 1px solid #5594d2;
 	border-radius: 2px;
 }
@@ -253,17 +262,20 @@ menu[type=context]{
 	-webkit-transition: opacity .3s;
 	opacity: 0;
 	margin: 0;
+	margin-top: 16px;
+	/*right: 16px;*/
 	padding: 5px 0;
 	list-style: none;
 	position: absolute;
 	left: -999px;
 	border: 1px solid #bbb;
-	border-radius: 5px;
+	border-radius: 2px;
 	background-color: rgba(255,255,255,.96);
-	box-shadow: 0 2px 6px rgba(0,0,0,.2);
-	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,.2);
+/*	box-shadow: 0 2px 6px rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,.2);*/
 	outline: 0;
 	max-width: 100%;
+	/*width: 80%;*/
 }
 menu[type=context] command{
 	display: block;

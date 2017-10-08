@@ -776,8 +776,11 @@ function init() {
 			el.addClass('active');
 			var bookmarkMenuWidth = $bookmarkContextMenu.offsetWidth;
 			var bookmarkMenuHeight = $bookmarkContextMenu.offsetHeight;
-			var pageX = rtl ? Math.max(0, e.pageX - bookmarkMenuWidth) : Math.min(e.pageX, body.offsetWidth - bookmarkMenuWidth);
+			var pageX = rtl ? Math.max(0, el.getBoundingClientRect().right - bookmarkMenuWidth) : Math.min(el.getBoundingClientRect().right, body.offsetWidth - bookmarkMenuWidth-16);
 			var pageY = e.pageY;
+			// var pageX = rtl ? Math.max(0, el.position().left - bookmarkMenuWidth) : Math.min(el.position().left, body.offsetWidth - bookmarkMenuWidth-16);
+			// var pageX = body.offsetWidth - bookmarkMenuWidth-16;
+			// var pageY = el.getBoundingClientRect().top;
 			var boundY = window.innerHeight - bookmarkMenuHeight;
 			if (pageY > boundY) pageY -= bookmarkMenuHeight;
 			if (pageY < 0) pageY = boundY;
@@ -798,7 +801,8 @@ function init() {
 			}
 			var folderMenuWidth = $folderContextMenu.offsetWidth;
 			var folderMenuHeight = $folderContextMenu.offsetHeight;
-			var pageX = rtl ? Math.max(0, e.pageX - folderMenuWidth) : Math.min(e.pageX, body.offsetWidth - folderMenuWidth);
+			// var pageX = rtl ? Math.max(0, e.pageX - folderMenuWidth) : Math.min(e.pageX, body.offsetWidth - folderMenuWidth);
+			var pageX = rtl ? Math.max(0, el.getBoundingClientRect().right - folderMenuWidth) : Math.min(el.getBoundingClientRect().right, body.offsetWidth - folderMenuWidth-16);
 			var pageY = e.pageY;
 			var boundY = window.innerHeight - folderMenuHeight;
 			if (pageY > boundY) pageY -= folderMenuHeight;

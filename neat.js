@@ -119,6 +119,8 @@ function init() {
 		var paddingStart = 14 * level;
 		var group = (level == 0) ? 'tree' : 'group';
 		var html = '<ul role="' + group + '" data-level="' + level + '">';
+		var folder_content = '';
+		var other_content = '';
 		
 		for (var i = 0, l = data.length; i < l; i++){
 			var d = data[i];
@@ -136,12 +138,12 @@ function init() {
 					isOpen = opens.contains(id);
 					if (isOpen) open = ' open';
 				}
-				html += '<li class="parent' + open + '"' + idHTML + ' role="treeitem" aria-expanded="' + isOpen + '" data-parentid="' + parentID + '">'
+				folder_content += '<li class="parent' + open + '"' + idHTML + ' role="treeitem" aria-expanded="' + isOpen + '" data-parentid="' + parentID + '">'
 					+ '<span tabindex="0" style="-webkit-padding-start: ' + paddingStart + 'px"><b class="twisty"></b>'
 					+ '<img src="folder.png" width="16" height="16" alt=""><i>' + (title || _m('noTitle')) + '</i>' + '</span>';
 				if (isOpen){
 					if (children){
-						html += generateHTML(children, level + 1);
+						folder_content  += generateHTML(children, level + 1);
 					} else {
 						(function(_id){
 							chrome.bookmarks.getChildren(_id, function(children){
@@ -155,13 +157,14 @@ function init() {
 						})(id);
 					}
 				}
+				folder_content += '</li>';
 			} else {
-				html += '<li class="child"' + idHTML + ' role="treeitem" data-parentid="' + parentID + '">'
-					+ generateBookmarkHTML(title, url, 'style="-webkit-padding-start: ' + paddingStart + 'px"');
+				other_content += '<li class="child"' + idHTML + ' role="treeitem" data-parentid="' + parentID + '">'
+					+ generateBookmarkHTML(title, url, 'style="-webkit-padding-start: ' + paddingStart + 'px"')+'</li>';;
 			}
-			html += '</li>';
+			
 		}
-		html += '</ul>';
+		html += folder_content +other_content+'</ul>';
 		return html;
 	};
 	

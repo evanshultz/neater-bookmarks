@@ -83,7 +83,7 @@ if (chrome.omnibox){
 					if (!aTestTitle && bTestTitle) return 1;
 					return b.dateAdded - a.dateAdded;
 				});
-				results = results.slice(0, 6);
+				results = results.slice(0, 12);
 			}
 			var resultsLen = results.length;
 			firstResult = results.shift();
